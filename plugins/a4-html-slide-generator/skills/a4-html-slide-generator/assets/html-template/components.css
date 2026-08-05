@@ -176,6 +176,7 @@
   min-height: 118mm;
   background: #f2f2f2;
   border-left: 1px solid var(--line);
+  overflow: hidden;
 }
 
 .representative-visual-image {
@@ -183,6 +184,13 @@
   height: 58mm;
   object-fit: contain;
   opacity: 0.88;
+}
+
+.representative-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .standard-layout {

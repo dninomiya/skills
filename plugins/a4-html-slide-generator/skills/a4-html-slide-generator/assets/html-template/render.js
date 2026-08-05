@@ -146,7 +146,8 @@ function representativeMessage(slide) {
   body.appendChild(signature);
 
   const visual = el("aside", "representative-visual");
-  visual.appendChild(image("representative-visual-image", slide.portrait || slide.visualLogo || "./header-logo.svg", slide.visualAlt || slide.name || slide.title));
+  const visualClass = slide.portrait ? "representative-portrait" : "representative-visual-image";
+  visual.appendChild(image(visualClass, slide.portrait || slide.visualLogo || "./header-logo.svg", slide.visualAlt || slide.name || slide.title));
   layout.appendChild(body);
   layout.appendChild(visual);
   return layout;
