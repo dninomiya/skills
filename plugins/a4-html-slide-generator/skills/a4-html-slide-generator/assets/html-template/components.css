@@ -183,8 +183,9 @@
 }
 
 .competitor-table .is-highlighted {
-  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  background: transparent;
   color: var(--ink);
+  font-weight: 700;
 }
 
 .competitor-table thead .is-highlighted {

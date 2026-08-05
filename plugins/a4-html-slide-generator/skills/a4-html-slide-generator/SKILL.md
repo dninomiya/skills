@@ -50,7 +50,7 @@ Generate `deck-data.json` before editing layout CSS. The JSON schema is intentio
     "author": "Optional author"
   },
   "theme": {
-    "accent": "#0F766E"
+    "accent": "#000000"
   },
   "slides": [
     {

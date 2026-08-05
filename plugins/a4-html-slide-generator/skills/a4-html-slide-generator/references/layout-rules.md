@@ -11,7 +11,7 @@ Use these rules before writing deck content or changing CSS.
 - Use `rem`, `px`, or `mm`; do not scale font size with viewport width.
 - Keep letter spacing at `0` unless a specific brand asset requires otherwise.
 - Avoid decorative gradients, floating cards, nested cards, and background blobs.
-- Use a restrained palette with one accent color plus neutral text and surface colors.
+- Use black as the only intentional color for text, rules, emphasis, and accents.
 
 ## Content Limits
 

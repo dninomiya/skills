@@ -2,7 +2,7 @@
   const response = await fetch("./deck-data.json");
   const deck = await response.json();
   document.title = deck.meta?.title || "A4 HTML Slide Deck";
-  document.documentElement.style.setProperty("--accent", deck.theme?.accent || "#0F766E");
+  document.documentElement.style.setProperty("--accent", deck.theme?.accent || "#000000");
 
   const root = document.getElementById("deck");
   root.innerHTML = "";
