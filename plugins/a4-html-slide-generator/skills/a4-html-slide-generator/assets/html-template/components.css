@@ -285,19 +285,19 @@
 .closing-qr {
   display: grid;
   justify-items: center;
-  gap: 8px;
-  margin-left: 18mm;
+  gap: 10px;
+  margin-left: 20mm;
 }
 
 .closing-qr-image {
-  width: 32mm;
-  height: 32mm;
+  width: 48mm;
+  height: 48mm;
   object-fit: contain;
 }
 
 .closing-qr-label {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.25;
   text-align: center;
 }
