@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "A4 HTML Slide Deck",
-    "subtitle": "Print-ready landscape pages",
+    "title": "A4 HTMLスライドデッキ",
+    "subtitle": "印刷とPDF出力に最適化した横長ページ",
     "author": ""
   },
   "theme": {
@@ -12,50 +12,52 @@
       "template": "cover",
       "logo": "./header-logo.svg",
       "logoAlt": "DEER logo",
-      "kicker": "Sample",
-      "title": "A4 HTML Slide Deck",
-      "subtitle": "A deterministic HTML template for PDF and print output",
-      "meta": "Prepared with Codex"
+      "kicker": "サンプル",
+      "title": "A4 HTMLスライドデッキ",
+      "subtitle": "PDFと印刷に向いた、再現性の高いHTMLテンプレート",
+      "meta": "Codexで作成"
     },
     {
       "template": "statement",
-      "kicker": "Core message",
-      "title": "Each slide is a fixed A4 landscape page.",
-      "body": "Content is rendered through constrained templates so the result can be validated before PDF export."
+      "kicker": "基本方針",
+      "title": "各スライドを固定サイズのA4横ページとして扱います。",
+      "body": "自由なレイアウト生成ではなく、制約付きテンプレートへ構造化データを流し込みます。"
     },
     {
       "template": "two-column",
-      "title": "Generation model",
+      "title": "生成モデル",
       "left": {
-        "heading": "Avoid",
-        "bullets": ["Free-form page CSS", "Unbounded text blocks", "Hidden overflow"]
+        "heading": "避ける",
+        "bullets": ["自由すぎるCSS", "無制限の文章量", "隠れたはみ出し"]
       },
       "right": {
-        "heading": "Prefer",
-        "bullets": ["Typed slide data", "Fixed components", "Validation before export"]
+        "heading": "採用する",
+        "bullets": ["型付きスライドデータ", "固定コンポーネント", "出力前の検証"]
       }
     },
     {
       "template": "competitor-comparison",
-      "title": "Positioning example",
-      "intro": "Use this pattern to compare one highlighted option against competitors.",
+      "title": "他社との比較例",
+      "intro": "強調したい選択肢を固定列として示し、評価軸ごとに差分を比較します。",
       "companies": [
-        { "name": "Deer", "label": "Highlighted", "highlight": true },
-        { "name": "Company A", "label": "Competitor" },
-        { "name": "Company B", "label": "Competitor" }
+        { "name": "Deer", "label": "自社", "highlight": true },
+        { "name": "他社A", "label": "汎用生成" },
+        { "name": "他社B", "label": "手作業中心" }
       ],
       "criteria": [
-        { "name": "Reproducibility", "values": ["Template-first", "Manual layout", "Ad hoc"] },
-        { "name": "PDF reliability", "values": ["Validated", "Review needed", "Variable"] },
-        { "name": "Brand assets", "values": ["Bundled", "External", "Manual"] },
-        { "name": "Iteration speed", "values": ["Fast", "Medium", "Medium"] }
+        { "name": "再現性", "values": ["テンプレート優先", "都度調整", "担当者依存"] },
+        { "name": "PDF安定性", "values": ["検証あり", "確認が必要", "ばらつく"] },
+        { "name": "ブランド資産", "values": ["同梱可能", "外部依存", "手動配置"] },
+        { "name": "反復速度", "values": ["速い", "中程度", "中程度"] }
       ]
     },
     {
       "template": "closing",
-      "title": "Ready for PDF output",
-      "note": "Run layout validation before delivering the final file.",
-      "contact": ""
+      "title": "PDF出力の準備ができました。",
+      "note": "最終ファイルを渡す前に、必ずレイアウト検証を実行します。",
+      "contact": "",
+      "qr": "./deer-qr.png",
+      "qrLabel": "deer.co.jp"
     }
   ]
 }

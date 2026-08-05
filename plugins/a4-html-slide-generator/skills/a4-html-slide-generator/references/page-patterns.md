@@ -111,5 +111,8 @@ Use for final page. Fields:
 - `title`
 - `note`
 - `contact`
+- `qr`
+- `qrLabel`
 
 Best for thank-you pages, decision requests, and final calls to action.
+Use `qr` for a local QR image path such as `./deer-qr.png`. Keep QR assets bundled with the deck so PDF export does not depend on external network access.

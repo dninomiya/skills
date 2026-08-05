@@ -258,6 +258,13 @@
 
 .closing-layout {
   align-content: center;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.closing-content {
+  display: grid;
   gap: 16px;
 }
 
@@ -273,4 +280,24 @@
   color: var(--muted);
   font-size: 18px;
   line-height: 1.38;
+}
+
+.closing-qr {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin-left: 18mm;
+}
+
+.closing-qr-image {
+  width: 32mm;
+  height: 32mm;
+  object-fit: contain;
+}
+
+.closing-qr-label {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: center;
 }

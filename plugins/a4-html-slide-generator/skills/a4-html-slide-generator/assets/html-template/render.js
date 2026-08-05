@@ -87,9 +87,8 @@ function template(slide) {
       ], "standard-layout");
     case "closing":
       return stack([
-        text("h1", "closing-title", slide.title),
-        text("p", "closing-note", slide.note),
-        text("p", "closing-contact", slide.contact)
+        closingContent(slide),
+        closingQr(slide)
       ], "closing-layout");
     default:
       return stack([
@@ -134,7 +133,7 @@ function competitorComparison(companies = [], criteria = []) {
   const node = el("table", "competitor-table");
   const thead = el("thead");
   const headRow = el("tr");
-  headRow.appendChild(text("th", "criterion-head", "Evaluation"));
+  headRow.appendChild(text("th", "criterion-head", "評価軸"));
   companies.forEach((company) => {
     const th = el("th", company.highlight ? "is-highlighted" : "");
     th.appendChild(text("div", "company-name", company.name));
@@ -155,6 +154,22 @@ function competitorComparison(companies = [], criteria = []) {
   });
   node.appendChild(tbody);
   return node;
+}
+
+function closingContent(slide) {
+  return stack([
+    text("h1", "closing-title", slide.title),
+    text("p", "closing-note", slide.note),
+    text("p", "closing-contact", slide.contact)
+  ], "closing-content");
+}
+
+function closingQr(slide) {
+  if (!slide.qr) return null;
+  return stack([
+    image("closing-qr-image", slide.qr, slide.qrAlt || slide.qrLabel || slide.title),
+    text("p", "closing-qr-label", slide.qrLabel)
+  ], "closing-qr");
 }
 
 function metrics(items = []) {
