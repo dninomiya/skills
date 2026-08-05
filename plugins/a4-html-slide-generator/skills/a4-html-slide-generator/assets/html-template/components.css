@@ -40,13 +40,13 @@
 
 .toc-layout {
   position: relative;
-  align-content: start;
+  align-content: center;
 }
 
 .toc-list {
   display: grid;
   gap: 15px;
-  margin: 2mm 0 0 34mm;
+  margin: 0 0 0 34mm;
   padding: 0;
   list-style: none;
 }
@@ -113,7 +113,7 @@
 }
 
 .standard-layout {
-  align-content: start;
+  align-content: center;
   display: grid;
   gap: 14px;
 }

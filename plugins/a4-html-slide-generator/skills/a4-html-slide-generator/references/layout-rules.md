@@ -54,6 +54,7 @@ Never solve overflow by changing page size, shrinking the whole page, hiding con
 ## Visual Rhythm
 
 - Anchor pages on a consistent grid.
+- Center slide content vertically within the body frame below the shared header and above the shared footer.
 - Prefer generous negative space over dense decoration.
 - Make the page title easy to scan from the top-left or center, depending on the template.
 - Keep repeated elements such as footers, page numbers, and section labels in stable positions.
