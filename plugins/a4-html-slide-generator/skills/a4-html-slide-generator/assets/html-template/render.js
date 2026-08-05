@@ -72,6 +72,8 @@ function template(slide) {
         text("h1", "statement-title", slide.title),
         text("p", "statement-body", slide.body)
       ], "statement-layout");
+    case "representative-message":
+      return representativeMessage(slide);
     case "bullets":
       return stack([
         text("p", "intro", slide.intro),
@@ -125,6 +127,29 @@ function columns(children) {
   const node = el("div", "columns");
   children.forEach((child) => node.appendChild(child));
   return node;
+}
+
+function representativeMessage(slide) {
+  const layout = el("div", "representative-layout");
+  const body = el("section", "representative-body");
+  body.appendChild(text("h1", "representative-title", slide.title));
+  body.appendChild(text("p", "representative-lead", slide.lead));
+
+  const paragraphs = el("div", "representative-copy");
+  (slide.paragraphs || []).forEach((paragraph) => paragraphs.appendChild(text("p", "", paragraph)));
+  body.appendChild(paragraphs);
+
+  const signature = el("div", "representative-signature");
+  signature.appendChild(text("p", "representative-company", slide.company));
+  signature.appendChild(text("p", "representative-role", slide.role));
+  signature.appendChild(text("p", "representative-name", slide.name));
+  body.appendChild(signature);
+
+  const visual = el("aside", "representative-visual");
+  visual.appendChild(image("representative-visual-image", slide.portrait || slide.visualLogo || "./header-logo.svg", slide.visualAlt || slide.name || slide.title));
+  layout.appendChild(body);
+  layout.appendChild(visual);
+  return layout;
 }
 
 function tocItems(items = []) {

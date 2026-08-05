@@ -34,7 +34,7 @@ Use for table of contents pages, usually immediately after the cover. Fields:
 - `copyright`
 
 Best for company profiles, proposal decks, and multi-section reports.
-Keep to 8 items or fewer. Use two-digit numbers such as `01`, `02`, and keep labels short.
+Keep to 9 items or fewer. Use two-digit numbers such as `01`, `02`, and keep labels short.
 
 ## `section`
 
@@ -55,6 +55,23 @@ Use for one clear message. Fields:
 - `body`
 
 Best for an executive summary, thesis, recommendation, or key finding.
+
+## `representative-message`
+
+Use for founder, CEO, or representative greeting pages. Fields:
+
+- `headerTitle`
+- `title`
+- `lead`
+- `paragraphs`
+- `company`
+- `role`
+- `name`
+- `portrait`
+- `visualLogo`
+- `visualAlt`
+
+Best for company profiles and recruiting decks. Prefer a short title, one lead sentence, and up to 3 body paragraphs. Use `portrait` when a local portrait asset is available; otherwise use `visualLogo`.
 
 ## `bullets`
 
