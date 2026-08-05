@@ -1,0 +1,4 @@
+interface:
+  display_name: "A4 HTML Slide Generator"
+  short_description: "Create print-ready A4 landscape HTML decks"
+  default_prompt: "Use $a4-html-slide-generator to create a print-ready A4 landscape HTML slide deck."

@@ -1,0 +1,37 @@
+{
+  "name": "evidence-record",
+  "version": "1.0.0",
+  "description": "Record browser operation evidence videos with step titles, cursor highlights, and click effects.",
+  "author": {
+    "name": "dninomiya",
+    "url": "https://github.com/dninomiya"
+  },
+  "homepage": "https://github.com/dninomiya/skills",
+  "repository": "https://github.com/dninomiya/skills",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "skill",
+    "playwright",
+    "recording",
+    "evidence"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Evidence Record",
+    "shortDescription": "Record browser evidence videos",
+    "longDescription": "Record instructed browser operations as evidence videos with step titles, cursor movement, click highlights, and output files kept outside the repository.",
+    "developerName": "dninomiya",
+    "category": "Productivity",
+    "capabilities": [
+      "Browser automation",
+      "Video recording",
+      "Evidence capture"
+    ],
+    "websiteURL": "https://github.com/dninomiya/skills",
+    "brandColor": "#E60012",
+    "defaultPrompt": [
+      "Use $evidence-record to record a browser flow as evidence."
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "A4 HTML Slide Deck",
+    "subtitle": "Print-ready landscape pages",
+    "author": ""
+  },
+  "theme": {
+    "accent": "#0F766E"
+  },
+  "slides": [
+    {
+      "template": "cover",
+      "logo": "./header-logo.svg",
+      "logoAlt": "DEER logo",
+      "kicker": "Sample",
+      "title": "A4 HTML Slide Deck",
+      "subtitle": "A deterministic HTML template for PDF and print output",
+      "meta": "Prepared with Codex"
+    },
+    {
+      "template": "statement",
+      "kicker": "Core message",
+      "title": "Each slide is a fixed A4 landscape page.",
+      "body": "Content is rendered through constrained templates so the result can be validated before PDF export."
+    },
+    {
+      "template": "two-column",
+      "title": "Generation model",
+      "left": {
+        "heading": "Avoid",
+        "bullets": ["Free-form page CSS", "Unbounded text blocks", "Hidden overflow"]
+      },
+      "right": {
+        "heading": "Prefer",
+        "bullets": ["Typed slide data", "Fixed components", "Validation before export"]
+      }
+    },
+    {
+      "template": "closing",
+      "title": "Ready for PDF output",
+      "note": "Run layout validation before delivering the final file.",
+      "contact": ""
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "a4-html-slide-generator",
+  "version": "1.0.0",
+  "description": "Create deterministic A4 landscape HTML slide decks optimized for PDF export and printing.",
+  "author": {
+    "name": "dninomiya",
+    "url": "https://github.com/dninomiya"
+  },
+  "homepage": "https://github.com/dninomiya/skills",
+  "repository": "https://github.com/dninomiya/skills",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "skill",
+    "slides",
+    "html",
+    "pdf",
+    "print"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "A4 HTML Slide Generator",
+    "shortDescription": "Create print-ready A4 HTML decks",
+    "longDescription": "Create constrained, print-ready A4 landscape HTML slide decks using reusable templates, strict content limits, layout validation, and PDF export scripts.",
+    "developerName": "dninomiya",
+    "category": "Productivity",
+    "capabilities": [
+      "Slide generation",
+      "HTML templates",
+      "PDF export",
+      "Layout validation"
+    ],
+    "websiteURL": "https://github.com/dninomiya/skills",
+    "brandColor": "#0F766E",
+    "defaultPrompt": [
+      "Use $a4-html-slide-generator to create an A4 landscape PDF deck."
+    ]
+  }
+}

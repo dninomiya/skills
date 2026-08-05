@@ -1,60 +1,48 @@
-# evidence-record
+# dninomiya Skills
 
-ブラウザ操作のエビデンス動画を撮る [Claude Code](https://claude.com/claude-code) スキル。
+Codex plugin repository for personal skills.
 
-指示した操作を [`playwright-cli`](https://www.npmjs.com/package/@playwright/cli) の `page.screencast` で録画し、**ステップタイトル付き・疑似カーソル/クリック強調つき**の動画にします。出力（スクリプトと動画）は `~/Downloads/evidence-record-<timestamp>/` にまとめて置くので、リポジトリに誤ってコミットされません。
+## Plugins
 
-## 導入
+### evidence-record
+
+Records instructed browser operations as evidence videos with step titles, cursor movement, and click highlights. Outputs scripts and videos under `~/Downloads/evidence-record-<timestamp>/` to avoid accidental commits.
+
+### a4-html-slide-generator
+
+Creates deterministic A4 landscape HTML slide decks optimized for PDF export and printing. Decks are generated from `deck-data.json` into fixed page templates, then validated for page size and overflow before PDF output.
+
+## Repository Layout
+
+```text
+.
+├── .agents/plugins/marketplace.json
+└── plugins/
+    ├── evidence-record/
+    │   ├── .codex-plugin/plugin.json
+    │   └── skills/evidence-record/
+    └── a4-html-slide-generator/
+        ├── .codex-plugin/plugin.json
+        └── skills/a4-html-slide-generator/
+```
+
+## Install Marketplace
+
+Add this repository marketplace to Codex:
 
 ```bash
-# プロジェクト単位で導入
-npx skills add dninomiya/evidence-record
-
-# 全エージェント・グローバルに導入
-npx skills add dninomiya/evidence-record --global --all
+codex plugin marketplace add .
 ```
 
-インストールせずに使う場合:
+Then install either plugin from the Codex plugin UI.
 
-```bash
-npx skills use dninomiya/evidence-record@evidence-record
-```
+## Direct Skill Usage
 
-## 前提
+Each plugin contains a standard skill directory under `skills/`.
 
-- [`playwright-cli`](https://www.npmjs.com/package/@playwright/cli) … 録画に必須。無ければ `npm install -g @playwright/cli@latest`。
-- `ffmpeg` … webm → mp4 変換に使用。無ければ webm のみ出力。
+- `plugins/evidence-record/skills/evidence-record`
+- `plugins/a4-html-slide-generator/skills/a4-html-slide-generator`
 
-## 使い方
-
-Claude Code で次のように起動します。
-
-```
-/evidence-record <録画したい操作の自由記述>
-```
-
-例:
-
-```
-/evidence-record ログインしてダッシュボードで新規プロジェクトを作成する様子を撮って
-```
-
-スキルは操作を「セットアップ（録画しない前準備）」と「録画するテストステップ」に仕分け、ステップ一覧を提示してから録画します。
-
-## テストに関係ないフローを動画に含めない
-
-ログイン・Cookie 同意・初期ナビなど、テスト本体に関係ない前準備は **録画開始前に実行**するため動画には映りません。`page.screencast` に pause/resume は無いので、映したくない操作は `screencast.start()` の前に `setup()` で済ませる方式を採っています（操作自体は実行されるのでアプリは正しい状態になります）。
-
-## 構成
-
-```
-evidence-record/
-├── SKILL.md                      # スキル本体（手順・規約）
-└── scripts/
-    ├── recorder-helpers.md       # 生成スクリプトに inline する正典ヘルパー
-    └── example-evidence.mjs      # 生成結果の完成例（TodoMVC 題材）
-```
-
-## ライセンス
+## License
 
 MIT

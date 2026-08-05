@@ -1,0 +1,32 @@
+{
+  "name": "dninomiya-skills",
+  "interface": {
+    "displayName": "dninomiya Skills"
+  },
+  "plugins": [
+    {
+      "name": "evidence-record",
+      "source": {
+        "source": "local",
+        "path": "./plugins/evidence-record"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "a4-html-slide-generator",
+      "source": {
+        "source": "local",
+        "path": "./plugins/a4-html-slide-generator"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
