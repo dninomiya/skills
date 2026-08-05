@@ -18,6 +18,19 @@
       "meta": "Codexで作成"
     },
     {
+      "template": "toc",
+      "title": "目次",
+      "logo": "./header-logo.svg",
+      "logoAlt": "DEER logo",
+      "copyright": "©2017-2026 Deer Inc.",
+      "items": [
+        { "number": "01", "label": "基本方針" },
+        { "number": "02", "label": "生成モデル" },
+        { "number": "03", "label": "比較例" },
+        { "number": "04", "label": "PDF出力" }
+      ]
+    },
+    {
       "template": "statement",
       "kicker": "基本方針",
       "title": "各スライドを固定サイズのA4横ページとして扱います。",

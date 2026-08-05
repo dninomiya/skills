@@ -1,4 +1,5 @@
 .cover-layout,
+.toc-layout,
 .section-layout,
 .closing-layout {
   align-self: stretch;
@@ -35,6 +36,70 @@
   margin-top: 20px;
   color: var(--muted);
   font-size: 13px;
+}
+
+.toc-layout {
+  position: relative;
+  align-content: start;
+}
+
+.toc-title {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.toc-logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 22mm;
+  height: 22mm;
+  object-fit: contain;
+}
+
+.toc-list {
+  display: grid;
+  gap: 15px;
+  margin: 21mm 0 0 34mm;
+  padding: 0;
+  list-style: none;
+}
+
+.toc-item {
+  display: grid;
+  grid-template-columns: 18mm minmax(0, 1fr);
+  align-items: baseline;
+  gap: 11mm;
+}
+
+.toc-number {
+  color: var(--accent);
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.toc-label {
+  color: var(--ink);
+  font-size: 23px;
+  line-height: 1.2;
+  font-weight: 760;
+}
+
+.toc-copyright {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.page-toc .page-footer {
+  display: none;
 }
 
 .section-layout {

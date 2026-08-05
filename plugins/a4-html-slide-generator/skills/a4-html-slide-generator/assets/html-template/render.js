@@ -38,6 +38,13 @@ function template(slide) {
         text("p", "cover-subtitle", slide.subtitle),
         text("p", "cover-meta", slide.meta)
       ], "cover-layout");
+    case "toc":
+      return stack([
+        image("toc-logo", slide.logo, slide.logoAlt || slide.title),
+        text("h1", "toc-title", slide.title || "目次"),
+        tocItems(slide.items),
+        text("p", "toc-copyright", slide.copyright)
+      ], "toc-layout");
     case "section":
       return stack([
         text("div", "section-label", slide.label),
@@ -108,6 +115,17 @@ function panel(heading, bullets) {
 function columns(children) {
   const node = el("div", "columns");
   children.forEach((child) => node.appendChild(child));
+  return node;
+}
+
+function tocItems(items = []) {
+  const node = el("ol", "toc-list");
+  items.forEach((item, index) => {
+    const li = el("li", "toc-item");
+    li.appendChild(text("span", "toc-number", item.number || String(index + 1).padStart(2, "0")));
+    li.appendChild(text("span", "toc-label", item.label || item));
+    node.appendChild(li);
+  });
   return node;
 }
 

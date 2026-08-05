@@ -16,6 +16,20 @@ Use for the first page. Fields:
 Best for deck title, proposal title, report title, or workshop opening.
 Use `logo` for a local image path such as `./header-logo.svg`. Keep logo assets bundled with the deck so PDF export does not depend on external network access.
 
+## `toc`
+
+Use for table of contents pages, usually immediately after the cover. Fields:
+
+- `title`
+- `logo`
+- `logoAlt`
+- `items[].number`
+- `items[].label`
+- `copyright`
+
+Best for company profiles, proposal decks, and multi-section reports.
+Keep to 8 items or fewer. Use two-digit numbers such as `01`, `02`, and keep labels short.
+
 ## `section`
 
 Use for major dividers. Fields:

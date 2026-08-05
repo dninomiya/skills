@@ -20,6 +20,7 @@ Use these default maximums unless the user explicitly asks for a denser document
 | Template | Title | Body |
 | --- | --- | --- |
 | `cover` | 56 characters | subtitle up to 90 characters |
+| `toc` | 12 characters | up to 8 items, 18 characters each |
 | `section` | 64 characters | label up to 32 characters |
 | `statement` | 90 characters | support up to 180 characters |
 | `bullets` | 64 characters | up to 5 bullets, 68 characters each |
