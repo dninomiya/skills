@@ -29,6 +29,7 @@ async function main() {
   const browser = await chromium.launch(chromiumLaunchOptions());
   const page = await browser.newPage({ viewport: { width: 1684, height: 1191 }, deviceScaleFactor: 1 });
   await page.goto(target, { waitUntil: "networkidle" });
+  await waitForDeckReady(page);
   await page.emulateMedia({ media: "print" });
   await page.pdf({
     path: output,
@@ -83,7 +84,19 @@ function contentType(filePath) {
   if (filePath.endsWith(".css")) return "text/css; charset=utf-8";
   if (filePath.endsWith(".js")) return "text/javascript; charset=utf-8";
   if (filePath.endsWith(".json")) return "application/json; charset=utf-8";
+  if (filePath.endsWith(".svg")) return "image/svg+xml";
+  if (filePath.endsWith(".png")) return "image/png";
+  if (filePath.endsWith(".jpg") || filePath.endsWith(".jpeg")) return "image/jpeg";
+  if (filePath.endsWith(".webp")) return "image/webp";
   return "application/octet-stream";
+}
+
+async function waitForDeckReady(page) {
+  await page.waitForFunction(() => document.querySelectorAll(".page").length > 0);
+  await page.waitForFunction(() => {
+    const images = Array.from(document.images);
+    return images.every((image) => image.complete && image.naturalWidth > 0);
+  });
 }
 
 function chromiumLaunchOptions() {
