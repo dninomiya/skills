@@ -25,6 +25,7 @@ Use these default maximums unless the user explicitly asks for a denser document
 | `bullets` | 64 characters | up to 5 bullets, 68 characters each |
 | `two-column` | 64 characters | 2 columns, up to 4 bullets per column |
 | `comparison` | 56 characters | up to 4 rows x 3 columns |
+| `competitor-comparison` | 56 characters | up to 4 companies x 4 criteria |
 | `metrics` | 56 characters | up to 4 metrics |
 | `timeline` | 56 characters | up to 5 events |
 | `closing` | 56 characters | note up to 120 characters |

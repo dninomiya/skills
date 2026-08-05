@@ -138,6 +138,59 @@
   text-transform: uppercase;
 }
 
+.competitor-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 13.5px;
+  line-height: 1.28;
+}
+
+.competitor-table th,
+.competitor-table td {
+  padding: 11px 12px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.competitor-table thead th {
+  color: var(--ink);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.competitor-table .criterion-head,
+.competitor-table .criterion-name {
+  width: 34mm;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.competitor-table .company-name {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 760;
+  text-transform: none;
+}
+
+.competitor-table .company-label {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 650;
+  text-transform: none;
+}
+
+.competitor-table .is-highlighted {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--ink);
+}
+
+.competitor-table thead .is-highlighted {
+  border-top: 2px solid var(--accent);
+}
+
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

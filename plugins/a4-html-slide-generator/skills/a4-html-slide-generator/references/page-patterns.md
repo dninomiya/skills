@@ -68,6 +68,20 @@ Use for compact tabular comparison. Fields:
 
 Best for options, vendors, approaches, or capability comparisons. Use short phrases, not paragraphs.
 
+## `competitor-comparison`
+
+Use for comparing one highlighted company/product against competitors. Fields:
+
+- `title`
+- `intro`
+- `companies[].name`
+- `companies[].label`
+- `companies[].highlight`
+- `criteria[].name`
+- `criteria[].values`
+
+Best for competitor comparison, vendor positioning, service differentiation, or sales proposal decks. Keep to 4 companies and 4 criteria. Set exactly one company with `highlight: true` when emphasizing the user's company.
+
 ## `metrics`
 
 Use for numeric emphasis. Fields:

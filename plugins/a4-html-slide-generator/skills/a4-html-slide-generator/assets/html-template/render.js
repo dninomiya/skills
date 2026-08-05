@@ -69,6 +69,12 @@ function template(slide) {
         text("h1", "page-title", slide.title),
         table(slide.columns, slide.rows)
       ], "standard-layout");
+    case "competitor-comparison":
+      return stack([
+        text("h1", "page-title", slide.title),
+        text("p", "intro", slide.intro),
+        competitorComparison(slide.companies, slide.criteria)
+      ], "standard-layout");
     case "metrics":
       return stack([
         text("h1", "page-title", slide.title),
@@ -118,6 +124,33 @@ function table(columnsData = [], rows = []) {
   rows.forEach((row) => {
     const tr = el("tr");
     row.forEach((cell) => tr.appendChild(text("td", "", cell)));
+    tbody.appendChild(tr);
+  });
+  node.appendChild(tbody);
+  return node;
+}
+
+function competitorComparison(companies = [], criteria = []) {
+  const node = el("table", "competitor-table");
+  const thead = el("thead");
+  const headRow = el("tr");
+  headRow.appendChild(text("th", "criterion-head", "Evaluation"));
+  companies.forEach((company) => {
+    const th = el("th", company.highlight ? "is-highlighted" : "");
+    th.appendChild(text("div", "company-name", company.name));
+    th.appendChild(text("div", "company-label", company.label));
+    headRow.appendChild(th);
+  });
+  thead.appendChild(headRow);
+  node.appendChild(thead);
+
+  const tbody = el("tbody");
+  criteria.forEach((criterion) => {
+    const tr = el("tr");
+    tr.appendChild(text("th", "criterion-name", criterion.name));
+    companies.forEach((company, index) => {
+      tr.appendChild(text("td", company.highlight ? "is-highlighted" : "", criterion.values?.[index]));
+    });
     tbody.appendChild(tr);
   });
   node.appendChild(tbody);

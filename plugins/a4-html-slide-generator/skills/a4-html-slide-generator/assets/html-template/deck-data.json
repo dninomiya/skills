@@ -36,6 +36,22 @@
       }
     },
     {
+      "template": "competitor-comparison",
+      "title": "Positioning example",
+      "intro": "Use this pattern to compare one highlighted option against competitors.",
+      "companies": [
+        { "name": "Deer", "label": "Highlighted", "highlight": true },
+        { "name": "Company A", "label": "Competitor" },
+        { "name": "Company B", "label": "Competitor" }
+      ],
+      "criteria": [
+        { "name": "Reproducibility", "values": ["Template-first", "Manual layout", "Ad hoc"] },
+        { "name": "PDF reliability", "values": ["Validated", "Review needed", "Variable"] },
+        { "name": "Brand assets", "values": ["Bundled", "External", "Manual"] },
+        { "name": "Iteration speed", "values": ["Fast", "Medium", "Medium"] }
+      ]
+    },
+    {
       "template": "closing",
       "title": "Ready for PDF output",
       "note": "Run layout validation before delivering the final file.",
