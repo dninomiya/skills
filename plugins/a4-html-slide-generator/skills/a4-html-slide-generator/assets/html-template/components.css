@@ -13,8 +13,8 @@
 }
 
 .cover-logo {
-  width: 24mm;
-  height: 24mm;
+  width: 32mm;
+  height: 32mm;
   object-fit: contain;
   margin-bottom: 8mm;
 }
@@ -35,7 +35,7 @@
 .cover-meta {
   margin-top: 20px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .toc-layout {
