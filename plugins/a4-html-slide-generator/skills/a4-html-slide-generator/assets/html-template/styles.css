@@ -64,6 +64,34 @@ body {
   display: grid;
 }
 
+.page-content-framed {
+  inset: 37mm var(--page-pad-x) 20mm var(--page-pad-x);
+}
+
+.page-header {
+  position: absolute;
+  top: var(--page-pad-y);
+  left: var(--page-pad-x);
+  right: var(--page-pad-x);
+  height: 14mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 760;
+}
+
+.header-logo {
+  width: 18mm;
+  height: 18mm;
+  object-fit: contain;
+}
+
 .page-footer {
   position: absolute;
   left: var(--page-pad-x);

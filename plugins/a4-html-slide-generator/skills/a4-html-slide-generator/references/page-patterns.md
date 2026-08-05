@@ -2,6 +2,12 @@
 
 Use only these templates unless the task clearly requires adding a new reusable pattern.
 
+All non-cover templates use the shared page frame:
+
+- Header: `headerTitle` or `title` on the left, `headerLogo` or `logo` on the right.
+- Footer: slide-level `copyright`, slide-level `footer`, or `meta.copyright` on the left; page number on the right.
+- Keep the header title and logo vertically centered.
+
 ## `cover`
 
 Use for the first page. Fields:

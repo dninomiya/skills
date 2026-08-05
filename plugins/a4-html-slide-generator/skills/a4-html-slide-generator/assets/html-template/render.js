@@ -7,25 +7,43 @@
   const root = document.getElementById("deck");
   root.innerHTML = "";
   deck.slides.forEach((slide, index) => {
-    root.appendChild(renderSlide(slide, index + 1, deck.slides.length));
+    root.appendChild(renderSlide(slide, index + 1, deck.slides.length, deck));
   });
 })();
 
-function renderSlide(slide, pageNumber, pageCount) {
+function renderSlide(slide, pageNumber, pageCount, deck) {
   const page = el("section", `page page-${slide.template}`);
   page.dataset.template = slide.template;
   page.dataset.page = String(pageNumber);
+  const hasFrame = slide.template !== "cover";
 
-  const content = el("div", "page-content");
+  if (hasFrame) {
+    page.appendChild(commonHeader(slide));
+  }
+
+  const content = el("div", hasFrame ? "page-content page-content-framed" : "page-content");
   content.appendChild(template(slide));
   page.appendChild(content);
 
-  const footer = el("footer", "page-footer");
-  footer.append(el("span", "footer-label", slide.footer || ""));
-  footer.append(el("span", "page-number", `${pageNumber} / ${pageCount}`));
-  page.appendChild(footer);
+  if (hasFrame) {
+    page.appendChild(commonFooter(slide, pageNumber, pageCount, deck));
+  }
 
   return page;
+}
+
+function commonHeader(slide) {
+  const header = el("header", "page-header");
+  header.appendChild(text("h1", "header-title", slide.headerTitle || slide.title || slide.label));
+  header.appendChild(image("header-logo", slide.headerLogo || slide.logo || "./header-logo.svg", slide.logoAlt || "logo"));
+  return header;
+}
+
+function commonFooter(slide, pageNumber, pageCount, deck) {
+  const footer = el("footer", "page-footer");
+  footer.appendChild(text("span", "footer-label", slide.copyright || slide.footer || deck.meta?.copyright || ""));
+  footer.appendChild(text("span", "page-number", `${pageNumber} / ${pageCount}`));
+  return footer;
 }
 
 function template(slide) {
@@ -40,10 +58,7 @@ function template(slide) {
       ], "cover-layout");
     case "toc":
       return stack([
-        image("toc-logo", slide.logo, slide.logoAlt || slide.title),
-        text("h1", "toc-title", slide.title || "目次"),
-        tocItems(slide.items),
-        text("p", "toc-copyright", slide.copyright)
+        tocItems(slide.items)
       ], "toc-layout");
     case "section":
       return stack([
@@ -59,13 +74,11 @@ function template(slide) {
       ], "statement-layout");
     case "bullets":
       return stack([
-        text("h1", "page-title", slide.title),
         text("p", "intro", slide.intro),
         list(slide.bullets, "bullet-list")
       ], "standard-layout");
     case "two-column":
       return stack([
-        text("h1", "page-title", slide.title),
         columns([
           panel(slide.left?.heading, slide.left?.bullets),
           panel(slide.right?.heading, slide.right?.bullets)
@@ -73,23 +86,19 @@ function template(slide) {
       ], "standard-layout");
     case "comparison":
       return stack([
-        text("h1", "page-title", slide.title),
         table(slide.columns, slide.rows)
       ], "standard-layout");
     case "competitor-comparison":
       return stack([
-        text("h1", "page-title", slide.title),
         text("p", "intro", slide.intro),
         competitorComparison(slide.companies, slide.criteria)
       ], "standard-layout");
     case "metrics":
       return stack([
-        text("h1", "page-title", slide.title),
         metrics(slide.metrics)
       ], "standard-layout");
     case "timeline":
       return stack([
-        text("h1", "page-title", slide.title),
         timeline(slide.events)
       ], "standard-layout");
     case "closing":

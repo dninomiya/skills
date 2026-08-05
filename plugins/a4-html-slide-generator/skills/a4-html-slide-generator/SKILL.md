@@ -47,7 +47,8 @@ Generate `deck-data.json` before editing layout CSS. The JSON schema is intentio
   "meta": {
     "title": "Deck title",
     "subtitle": "Optional subtitle",
-    "author": "Optional author"
+    "author": "Optional author",
+    "copyright": "Optional footer copyright"
   },
   "theme": {
     "accent": "#000000"
@@ -58,6 +59,13 @@ Generate `deck-data.json` before editing layout CSS. The JSON schema is intentio
       "kicker": "Proposal",
       "title": "Deck title",
       "subtitle": "Short supporting line"
+    },
+    {
+      "template": "toc",
+      "title": "目次",
+      "items": [
+        { "number": "01", "label": "Section title" }
+      ]
     }
   ]
 }

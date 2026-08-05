@@ -2,7 +2,8 @@
   "meta": {
     "title": "A4 HTMLスライドデッキ",
     "subtitle": "印刷とPDF出力に最適化した横長ページ",
-    "author": ""
+    "author": "",
+    "copyright": "©2017-2026 Deer Inc."
   },
   "theme": {
     "accent": "#000000"
@@ -22,7 +23,6 @@
       "title": "目次",
       "logo": "./header-logo.svg",
       "logoAlt": "DEER logo",
-      "copyright": "©2017-2026 Deer Inc.",
       "items": [
         { "number": "01", "label": "基本方針" },
         { "number": "02", "label": "生成モデル" },
@@ -32,6 +32,7 @@
     },
     {
       "template": "statement",
+      "headerTitle": "基本方針",
       "kicker": "基本方針",
       "title": "各スライドを固定サイズのA4横ページとして扱います。",
       "body": "自由なレイアウト生成ではなく、制約付きテンプレートへ構造化データを流し込みます。"
@@ -66,6 +67,7 @@
     },
     {
       "template": "closing",
+      "headerTitle": "PDF出力",
       "title": "PDF出力の準備ができました。",
       "note": "最終ファイルを渡す前に、必ずレイアウト検証を実行します。",
       "contact": "",
