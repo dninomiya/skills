@@ -13,7 +13,7 @@ Every field of the object passed to `createReporter()`. Types live in
 | `logoPath` | none | String or array of paths, relative to the Playwright `rootDir` or absolute. The **first existing** file is inlined as SVG. |
 | `logoFallbackText` | `title` | Shown when no logo file resolves. |
 | `locale` / `timeZone` | `ja-JP` / `Asia/Tokyo` | Used for the run timestamp. |
-| `outputFile` | `pdm-report/index.html` | Relative to `rootDir`. Reporter options (`["./reporters/index.ts", { outputFile }]`) win over this. |
+| `outputFile` | `persona-report/index.html` | Relative to `rootDir`. Reporter options (`["./reporters/index.ts", { outputFile }]`) win over this. |
 
 ## Wiring
 

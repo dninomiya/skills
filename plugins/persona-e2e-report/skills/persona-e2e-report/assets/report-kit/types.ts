@@ -99,7 +99,7 @@ export type ReportConfig = {
   readonly subtitle: string;
   /** ヘッダ右のピル表記。既定 "E2E レポート"。 */
   readonly kindLabel?: string;
-  /** 出力先（playwright.config.ts の rootDir からの相対）。既定 "pdm-report/index.html"。 */
+  /** 出力先（playwright.config.ts の rootDir からの相対）。既定 "persona-report/index.html"。 */
   readonly outputFile?: string;
   /** 実行日時の表記に使う。既定 "ja-JP" / "Asia/Tokyo"。 */
   readonly locale?: string;

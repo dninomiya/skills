@@ -29,10 +29,10 @@
       "category": "Productivity"
     },
     {
-      "name": "pdm-e2e-report",
+      "name": "persona-e2e-report",
       "source": {
         "source": "local",
-        "path": "./plugins/pdm-e2e-report"
+        "path": "./plugins/persona-e2e-report"
       },
       "policy": {
         "installation": "AVAILABLE",

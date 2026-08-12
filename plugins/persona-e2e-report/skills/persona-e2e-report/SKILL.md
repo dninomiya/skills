@@ -1,5 +1,5 @@
 ---
-name: pdm-e2e-report
+name: persona-e2e-report
 description: Turn a Playwright E2E suite into a single-file, non-engineer readable status report organized by persona. Use when Codex needs to give product managers, designers, or QA a shareable view of what each user type can actually do — a persona × capability status matrix, per-step screenshots of every operation, and failures kept visible instead of hidden in CI logs.
 ---
 

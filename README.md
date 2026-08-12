@@ -12,7 +12,7 @@ Records instructed browser operations as evidence videos with step titles, curso
 
 Creates deterministic A4 landscape HTML slide decks optimized for PDF export and printing. Decks are generated from `deck-data.json` into fixed page templates, then validated for page size and overflow before PDF output.
 
-### pdm-e2e-report
+### persona-e2e-report
 
 Turns a Playwright E2E suite into a single-file status report that non-engineers can read: a persona × capability matrix, per-step screenshots of every operation, and failures kept visible. Product-specific knowledge lives in one config object, so the same engine serves any project.
 
@@ -28,9 +28,9 @@ Turns a Playwright E2E suite into a single-file status report that non-engineers
     ├── a4-html-slide-generator/
     │   ├── .codex-plugin/plugin.json
     │   └── skills/a4-html-slide-generator/
-    └── pdm-e2e-report/
+    └── persona-e2e-report/
         ├── .codex-plugin/plugin.json
-        └── skills/pdm-e2e-report/
+        └── skills/persona-e2e-report/
 ```
 
 ## Install Marketplace
@@ -49,7 +49,7 @@ Each plugin contains a standard skill directory under `skills/`.
 
 - `plugins/evidence-record/skills/evidence-record`
 - `plugins/a4-html-slide-generator/skills/a4-html-slide-generator`
-- `plugins/pdm-e2e-report/skills/pdm-e2e-report`
+- `plugins/persona-e2e-report/skills/persona-e2e-report`
 
 ## License
 
