@@ -1,0 +1,4 @@
+interface:
+  display_name: "Persona E2E Report"
+  short_description: "Build persona-based E2E status reports"
+  default_prompt: "Use $pdm-e2e-report to add a persona-based E2E status report to this Playwright suite."

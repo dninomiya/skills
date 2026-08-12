@@ -1,0 +1,39 @@
+{
+  "name": "pdm-e2e-report",
+  "version": "1.0.0",
+  "description": "Turn a Playwright E2E suite into a single-file, persona-based status report for product managers.",
+  "author": {
+    "name": "dninomiya",
+    "url": "https://github.com/dninomiya"
+  },
+  "homepage": "https://github.com/dninomiya/skills",
+  "repository": "https://github.com/dninomiya/skills",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "skill",
+    "playwright",
+    "e2e",
+    "report",
+    "qa"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Persona E2E Report",
+    "shortDescription": "Persona-based E2E status reports",
+    "longDescription": "Add a reporting layer to a Playwright suite that renders a persona x capability status matrix, per-step screenshots of every operation, and visible failures as one self-contained HTML file that non-engineers can read.",
+    "developerName": "dninomiya",
+    "category": "Productivity",
+    "capabilities": [
+      "Playwright reporter",
+      "Status matrix",
+      "Step screenshots",
+      "Single-file HTML report"
+    ],
+    "websiteURL": "https://github.com/dninomiya/skills",
+    "brandColor": "#16A34A",
+    "defaultPrompt": [
+      "Use $pdm-e2e-report to add a persona-based E2E status report."
+    ]
+  }
+}
