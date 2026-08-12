@@ -1,0 +1,15 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>経費精算デモ</title>
+<style>body{font-family:sans-serif;margin:0} header{background:#0f766e;color:#fff;padding:12px 16px;font-weight:700}
+main{padding:16px} button{padding:8px 14px;font-size:14px} input{padding:6px;font-size:14px}
+.row{border:1px solid #ddd;border-radius:8px;padding:12px;margin:8px 0}</style></head>
+<body><header>経費精算デモ</header><main>
+<h1>申請一覧</h1>
+<div class="row"><span>交通費 1,200円</span> <button id="approve">承認する</button></div>
+<label for="amount">金額</label> <input id="amount" placeholder="金額を入力">
+<button id="submit">申請する</button>
+<p id="result"></p>
+<script>
+document.getElementById('approve').addEventListener('click',()=>{document.getElementById('result').textContent='承認しました';});
+document.getElementById('submit').addEventListener('click',()=>{document.getElementById('result').textContent='申請しました: '+document.getElementById('amount').value;});
+</script>
+</main></body></html>
