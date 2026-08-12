@@ -124,7 +124,7 @@ function resolveConfig(config: ReportConfig): ResolvedConfig {
     title: config.title,
     subtitle: config.subtitle,
     kindLabel: config.kindLabel ?? "E2E レポート",
-    outputFile: config.outputFile ?? "pdm-report/index.html",
+    outputFile: config.outputFile ?? "persona-report/index.html",
     locale: config.locale ?? "ja-JP",
     timeZone: config.timeZone ?? "Asia/Tokyo",
     logoPaths,
