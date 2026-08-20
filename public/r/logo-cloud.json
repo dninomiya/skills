@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logo-cloud",
+  "title": "ロゴクラウド",
+  "description": "ヒーローの直下に置く、控えめな導入実績の帯。",
+  "registryDependencies": [
+    "http://localhost:3000/r/section.json"
+  ],
+  "files": [
+    {
+      "path": "registry/website/blocks/logo-cloud/logo-cloud.tsx",
+      "content": "import { Section } from \"@/registry/website/ui/section\"\n\nconst logos = [\"Vercel\", \"Linear\", \"Supabase\", \"Raycast\", \"Resend\", \"Framer\"]\n\nexport function LogoCloud() {\n  return (\n    <Section size=\"sm\" tone=\"muted\" bordered>\n      <p className=\"text-center text-sm font-medium text-muted-foreground\">\n        毎日リリースを続けるチームに選ばれています\n      </p>\n      <div className=\"mt-8 grid grid-cols-2 items-center gap-x-8 gap-y-8 sm:grid-cols-3 lg:grid-cols-6\">\n        {logos.map((logo) => (\n          <div\n            key={logo}\n            className=\"text-center text-lg font-semibold tracking-tight text-muted-foreground/80\"\n          >\n            {logo}\n          </div>\n        ))}\n      </div>\n    </Section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/logo-cloud/logo-cloud.tsx"
+    }
+  ],
+  "meta": {
+    "group": "block",
+    "preview": "iframe",
+    "height": 320,
+    "component": "LogoCloud"
+  },
+  "categories": [
+    "website"
+  ],
+  "type": "registry:block"
+}

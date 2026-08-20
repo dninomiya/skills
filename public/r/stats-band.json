@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats-band",
+  "title": "指標バンド",
+  "description": "アクセント色の全幅バンドに、等幅数字で 4 つの指標を並べます。",
+  "registryDependencies": [
+    "http://localhost:3000/r/section.json"
+  ],
+  "files": [
+    {
+      "path": "registry/website/blocks/stats-band/stats-band.tsx",
+      "content": "import {\n  Section,\n  SectionDescription,\n  SectionHeader,\n  SectionTitle,\n} from \"@/registry/website/ui/section\"\n\nconst stats = [\n  { value: \"12,000+\", label: \"公開されたサイト\" },\n  { value: \"99.99%\", label: \"昨年の稼働率\" },\n  { value: \"40ms\", label: \"レスポンス中央値\" },\n  { value: \"4.9/5\", label: \"顧客満足度\" },\n]\n\nexport function StatsBand() {\n  return (\n    <Section size=\"md\" tone=\"accent\">\n      <SectionHeader align=\"center\">\n        <SectionTitle className=\"text-2xl sm:text-3xl\">\n          本番環境で裏づけられた数字\n        </SectionTitle>\n        <SectionDescription>\n          プラットフォーム上で稼働するすべてのプロジェクトから計測しています。\n        </SectionDescription>\n      </SectionHeader>\n      <dl className=\"mt-12 grid grid-cols-2 gap-8 lg:grid-cols-4\">\n        {stats.map((stat) => (\n          <div key={stat.label} className=\"flex flex-col items-center gap-1.5\">\n            <dt className=\"sr-only\">{stat.label}</dt>\n            <dd className=\"text-3xl font-bold tracking-tight tabular-nums sm:text-4xl\">\n              {stat.value}\n            </dd>\n            <p className=\"text-center text-sm text-primary-foreground/70\">\n              {stat.label}\n            </p>\n          </div>\n        ))}\n      </dl>\n    </Section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/stats-band/stats-band.tsx"
+    }
+  ],
+  "meta": {
+    "group": "block",
+    "preview": "iframe",
+    "height": 480,
+    "component": "StatsBand"
+  },
+  "categories": [
+    "website"
+  ],
+  "type": "registry:block"
+}

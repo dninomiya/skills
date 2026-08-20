@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "site-header",
+  "title": "サイトヘッダー",
+  "description": "主要ナビゲーション、ログイン導線、モバイル用シートメニューを備えた固定ヘッダー。",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "sheet",
+    "http://localhost:3000/r/container.json"
+  ],
+  "files": [
+    {
+      "path": "registry/website/blocks/site-header/site-header.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport Link from \"next/link\"\nimport { MenuIcon } from \"lucide-react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Sheet,\n  SheetContent,\n  SheetHeader,\n  SheetTitle,\n  SheetTrigger,\n} from \"@/components/ui/sheet\"\nimport { Container } from \"@/registry/website/ui/container\"\n\nconst navigation = [\n  { label: \"製品\", href: \"#features\" },\n  { label: \"料金\", href: \"#pricing\" },\n  { label: \"導入事例\", href: \"#testimonials\" },\n  { label: \"よくある質問\", href: \"#faq\" },\n]\n\nexport function SiteHeader() {\n  const [open, setOpen] = React.useState(false)\n\n  return (\n    <header className=\"sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60\">\n      <Container\n        size=\"xl\"\n        className=\"flex h-16 items-center justify-between gap-6\"\n      >\n        <Link\n          href=\"/\"\n          className=\"flex items-center gap-2 font-semibold tracking-tight\"\n        >\n          <span\n            aria-hidden\n            className=\"inline-flex size-7 items-center justify-center rounded-md bg-primary text-xs font-bold text-primary-foreground\"\n          >\n            A\n          </span>\n          Acme\n        </Link>\n\n        <nav className=\"hidden items-center gap-1 md:flex\">\n          {navigation.map((item) => (\n            <Link\n              key={item.href}\n              href={item.href}\n              className=\"rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground\"\n            >\n              {item.label}\n            </Link>\n          ))}\n        </nav>\n\n        <div className=\"hidden items-center gap-2 md:flex\">\n          <Button\n            nativeButton={false}\n            variant=\"ghost\"\n            size=\"sm\"\n            render={<Link href=\"/login\" />}\n          >\n            ログイン\n          </Button>\n          <Button\n            nativeButton={false}\n            size=\"sm\"\n            render={<Link href=\"/signup\" />}\n          >\n            無料で始める\n          </Button>\n        </div>\n\n        <Sheet open={open} onOpenChange={setOpen}>\n          <SheetTrigger\n            render={\n              <Button variant=\"ghost\" size=\"icon\" className=\"md:hidden\">\n                <MenuIcon />\n                <span className=\"sr-only\">メニューを開く</span>\n              </Button>\n            }\n          />\n          <SheetContent side=\"right\" className=\"w-full sm:max-w-sm\">\n            <SheetHeader>\n              <SheetTitle>メニュー</SheetTitle>\n            </SheetHeader>\n            <nav className=\"flex flex-col gap-1 px-4\">\n              {navigation.map((item) => (\n                <Link\n                  key={item.href}\n                  href={item.href}\n                  onClick={() => setOpen(false)}\n                  className=\"rounded-md px-3 py-2.5 text-base font-medium transition-colors hover:bg-muted\"\n                >\n                  {item.label}\n                </Link>\n              ))}\n            </nav>\n            <div className=\"mt-auto flex flex-col gap-2 p-4\">\n              <Button\n                nativeButton={false}\n                variant=\"outline\"\n                className=\"h-10\"\n                render={<Link href=\"/login\" />}\n              >\n                ログイン\n              </Button>\n              <Button\n                nativeButton={false}\n                className=\"h-10\"\n                render={<Link href=\"/signup\" />}\n              >\n                無料で始める\n              </Button>\n            </div>\n          </SheetContent>\n        </Sheet>\n      </Container>\n    </header>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/site-header/site-header.tsx"
+    }
+  ],
+  "meta": {
+    "group": "block",
+    "preview": "iframe",
+    "height": 420,
+    "component": "SiteHeader"
+  },
+  "categories": [
+    "website"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "website-theme",
+  "title": "ウェブサイトテーマ",
+  "description": "マーケティングページ向けにトークンを調整したテーマ。アクセントは 1 色、ニュートラルは落ち着いた色味、角丸はやや大きめ。日本語向けのフォントスタックも含みます。",
+  "cssVars": {
+    "theme": {
+      "--radius": "0.75rem",
+      "--font-sans": "\"Noto Sans JP\", \"Noto Sans JP Fallback\", ui-sans-serif, system-ui, \"Hiragino Sans\", \"Yu Gothic UI\", sans-serif",
+      "--font-mono": "\"Geist Mono\", \"Geist Mono Fallback\", ui-monospace, SFMono-Regular, monospace"
+    },
+    "light": {
+      "--background": "oklch(1 0 0)",
+      "--foreground": "oklch(0.17 0.01 258)",
+      "--muted": "oklch(0.97 0.005 258)",
+      "--muted-foreground": "oklch(0.52 0.015 258)",
+      "--card": "oklch(1 0 0)",
+      "--card-foreground": "oklch(0.17 0.01 258)",
+      "--primary": "oklch(0.55 0.19 258)",
+      "--primary-foreground": "oklch(0.99 0 0)",
+      "--secondary": "oklch(0.97 0.005 258)",
+      "--secondary-foreground": "oklch(0.24 0.015 258)",
+      "--accent": "oklch(0.96 0.015 258)",
+      "--accent-foreground": "oklch(0.31 0.04 258)",
+      "--border": "oklch(0.92 0.005 258)",
+      "--input": "oklch(0.92 0.005 258)",
+      "--ring": "oklch(0.55 0.19 258)"
+    },
+    "dark": {
+      "--background": "oklch(0.16 0.01 258)",
+      "--foreground": "oklch(0.97 0.005 258)",
+      "--muted": "oklch(0.24 0.015 258)",
+      "--muted-foreground": "oklch(0.72 0.015 258)",
+      "--card": "oklch(0.2 0.012 258)",
+      "--card-foreground": "oklch(0.97 0.005 258)",
+      "--primary": "oklch(0.68 0.16 258)",
+      "--primary-foreground": "oklch(0.17 0.02 258)",
+      "--secondary": "oklch(0.26 0.015 258)",
+      "--secondary-foreground": "oklch(0.97 0.005 258)",
+      "--accent": "oklch(0.28 0.02 258)",
+      "--accent-foreground": "oklch(0.95 0.01 258)",
+      "--border": "oklch(1 0 0 / 12%)",
+      "--input": "oklch(1 0 0 / 16%)",
+      "--ring": "oklch(0.68 0.16 258)"
+    }
+  },
+  "css": {
+    "@layer base": {
+      "p, li, dd, dt, blockquote, figcaption, label": {
+        "word-break": "auto-phrase"
+      }
+    }
+  },
+  "meta": {
+    "group": "theme",
+    "preview": "none"
+  },
+  "docs": "Noto Sans JP を next/font で読み込み、<html> に variable を渡してください。\n\nimport { Noto_Sans_JP } from \"next/font/google\"\n\nconst notoSansJP = Noto_Sans_JP({\n  variable: \"--font-noto-sans-jp\",\n  subsets: [\"latin\"],\n  display: \"swap\",\n  // 日本語グリフは大きいので preload しない\n  preload: false,\n})\n\n<html lang=\"ja\" className={notoSansJP.variable}>",
+  "categories": [
+    "website",
+    "theme"
+  ],
+  "type": "registry:theme"
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "site-footer",
+  "title": "サイトフッター",
+  "description": "リンクグループ、ブランド説明、規約リンクを備えた 4 カラムのフッター。",
+  "registryDependencies": [
+    "http://localhost:3000/r/container.json"
+  ],
+  "files": [
+    {
+      "path": "registry/website/blocks/site-footer/site-footer.tsx",
+      "content": "import Link from \"next/link\"\n\nimport { Container } from \"@/registry/website/ui/container\"\n\nconst groups = [\n  {\n    title: \"プロダクト\",\n    links: [\n      { label: \"機能\", href: \"#features\" },\n      { label: \"料金\", href: \"#pricing\" },\n      { label: \"更新履歴\", href: \"/changelog\" },\n      { label: \"ドキュメント\", href: \"/docs\" },\n    ],\n  },\n  {\n    title: \"会社\",\n    links: [\n      { label: \"会社概要\", href: \"/about\" },\n      { label: \"ブログ\", href: \"/blog\" },\n      { label: \"採用情報\", href: \"/careers\" },\n      { label: \"お問い合わせ\", href: \"/contact\" },\n    ],\n  },\n  {\n    title: \"規約\",\n    links: [\n      { label: \"プライバシーポリシー\", href: \"/privacy\" },\n      { label: \"利用規約\", href: \"/terms\" },\n      { label: \"セキュリティ\", href: \"/security\" },\n    ],\n  },\n]\n\nexport function SiteFooter() {\n  return (\n    <footer className=\"border-t border-border bg-background\">\n      <Container size=\"xl\" className=\"py-16\">\n        <div className=\"grid gap-12 md:grid-cols-[1.5fr_repeat(3,1fr)]\">\n          <div className=\"flex max-w-xs flex-col gap-3\">\n            <Link\n              href=\"/\"\n              className=\"flex items-center gap-2 font-semibold tracking-tight\"\n            >\n              <span\n                aria-hidden\n                className=\"inline-flex size-7 items-center justify-center rounded-md bg-primary text-xs font-bold text-primary-foreground\"\n              >\n                A\n              </span>\n              Acme\n            </Link>\n            <p className=\"text-sm leading-[1.8] text-muted-foreground\">\n              ページが増えても一貫性が保たれる、マーケティングサイトのためのコンポーネントレジストリ。\n            </p>\n          </div>\n          {groups.map((group) => (\n            <div key={group.title} className=\"flex flex-col gap-3\">\n              <h3 className=\"text-sm font-medium\">{group.title}</h3>\n              <ul className=\"flex flex-col gap-2.5\">\n                {group.links.map((link) => (\n                  <li key={link.href}>\n                    <Link\n                      href={link.href}\n                      className=\"text-sm text-muted-foreground transition-colors hover:text-foreground\"\n                    >\n                      {link.label}\n                    </Link>\n                  </li>\n                ))}\n              </ul>\n            </div>\n          ))}\n        </div>\n        <div className=\"mt-12 flex flex-col gap-3 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between\">\n          <p className=\"text-sm text-muted-foreground\">\n            &copy; {new Date().getFullYear()} Acme Inc.\n          </p>\n          <div className=\"flex gap-4\">\n            <Link\n              href=\"/privacy\"\n              className=\"text-sm text-muted-foreground transition-colors hover:text-foreground\"\n            >\n              プライバシーポリシー\n            </Link>\n            <Link\n              href=\"/terms\"\n              className=\"text-sm text-muted-foreground transition-colors hover:text-foreground\"\n            >\n              利用規約\n            </Link>\n          </div>\n        </div>\n      </Container>\n    </footer>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/site-footer/site-footer.tsx"
+    }
+  ],
+  "meta": {
+    "group": "block",
+    "preview": "iframe",
+    "height": 560,
+    "component": "SiteFooter"
+  },
+  "categories": [
+    "website"
+  ],
+  "type": "registry:block"
+}

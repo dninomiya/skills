@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-split",
+  "title": "ヒーロー（左右分割）",
+  "description": "価値提案と裏づけを、ビジュアルと並べて見せる 2 カラムのヒーロー。",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "http://localhost:3000/r/section.json",
+    "http://localhost:3000/r/placeholder.json"
+  ],
+  "files": [
+    {
+      "path": "registry/website/blocks/hero-split/hero-split.tsx",
+      "content": "import Link from \"next/link\"\nimport { CheckIcon } from \"lucide-react\"\n\nimport { Button } from \"@/components/ui/button\"\nimport { Placeholder } from \"@/registry/website/ui/placeholder\"\nimport {\n  Section,\n  SectionActions,\n  SectionDescription,\n  SectionEyebrow,\n  SectionHeader,\n  SectionTitle,\n} from \"@/registry/website/ui/section\"\n\nconst highlights = [\n  \"クレジットカード不要\",\n  \"SOC 2 Type II 準拠\",\n  \"1時間以内に移行完了\",\n]\n\nexport function HeroSplit() {\n  return (\n    <Section size=\"lg\" width=\"xl\">\n      <div className=\"grid items-center gap-12 lg:grid-cols-2 lg:gap-16\">\n        <SectionHeader className=\"max-w-xl\">\n          <SectionEyebrow>プラットフォーム</SectionEyebrow>\n          <SectionTitle as=\"h1\" className=\"text-4xl sm:text-5xl\">\n            サイト制作に足りなかったデザインシステム\n          </SectionTitle>\n          <SectionDescription>\n            すべてのブロックが同じトークンと余白スケールでできているので、新しいページもデザインレビューなしで形になります。\n          </SectionDescription>\n          <ul className=\"mt-2 flex flex-col gap-2\">\n            {highlights.map((item) => (\n              <li key={item} className=\"flex items-center gap-2.5 text-sm\">\n                <CheckIcon className=\"size-4 shrink-0 text-primary\" />\n                <span className=\"text-muted-foreground\">{item}</span>\n              </li>\n            ))}\n          </ul>\n          <SectionActions className=\"mt-2\">\n            <Button nativeButton={false} render={<Link href=\"/signup\" />}>\n              使ってみる\n            </Button>\n            <Button\n              nativeButton={false}\n              variant=\"outline\"\n              render={<Link href=\"/docs\" />}\n            >\n              ドキュメントを読む\n            </Button>\n          </SectionActions>\n        </SectionHeader>\n        <Placeholder\n          ratio=\"square\"\n          label=\"プロダクトビジュアル\"\n          className=\"lg:ml-auto\"\n        />\n      </div>\n    </Section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/hero-split/hero-split.tsx"
+    }
+  ],
+  "meta": {
+    "group": "block",
+    "preview": "iframe",
+    "height": 760,
+    "component": "HeroSplit"
+  },
+  "categories": [
+    "website"
+  ],
+  "type": "registry:block"
+}

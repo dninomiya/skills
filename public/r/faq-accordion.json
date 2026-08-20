@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "faq-accordion",
+  "title": "FAQ アコーディオン",
+  "description": "1 つずつ開くアコーディオン。長い回答も読みやすい幅に収めています。",
+  "registryDependencies": [
+    "accordion",
+    "http://localhost:3000/r/section.json"
+  ],
+  "files": [
+    {
+      "path": "registry/website/blocks/faq-accordion/faq-accordion.tsx",
+      "content": "import {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/components/ui/accordion\"\nimport {\n  Section,\n  SectionContent,\n  SectionDescription,\n  SectionEyebrow,\n  SectionHeader,\n  SectionTitle,\n} from \"@/registry/website/ui/section\"\n\nconst faqs = [\n  {\n    question: \"ブロックはどうやって導入しますか？\",\n    answer:\n      \"shadcn CLI をこのレジストリに向けて実行するだけです。ソースは自分のリポジトリの alias 配下に入るので、他のファイルと同じように編集できます。\",\n  },\n  {\n    question: \"後からデザインを変えられますか？\",\n    answer:\n      \"変えられます。色・角丸・書体は CSS 変数から読んでいるので、トークンを一度更新すればすべてのセクションが追従します。\",\n  },\n  {\n    question: \"Tailwind なしでも使えますか？\",\n    answer:\n      \"使えません。このレジストリは Tailwind CSS v4 と shadcn のトークン層を前提にしています。その制約こそが、出力を一定に保つ仕組みです。\",\n  },\n  {\n    question: \"ダークモードはどうなりますか？\",\n    answer:\n      \"同じトークンから導かれます。色をハードコードしていないため、ライトとダークのどちらもコントラストを保ったまま表示されます。\",\n  },\n]\n\nexport function FaqAccordion() {\n  return (\n    <Section id=\"faq\" size=\"lg\" width=\"md\">\n      <SectionHeader align=\"center\">\n        <SectionEyebrow>よくある質問</SectionEyebrow>\n        <SectionTitle>よくいただく質問</SectionTitle>\n        <SectionDescription>\n          解決しない場合は、お気軽にお問い合わせください。\n        </SectionDescription>\n      </SectionHeader>\n      <SectionContent>\n        <Accordion className=\"mx-auto max-w-2xl\">\n          {faqs.map((faq) => (\n            <AccordionItem key={faq.question} value={faq.question}>\n              <AccordionTrigger className=\"py-5 text-base\">\n                {faq.question}\n              </AccordionTrigger>\n              <AccordionContent className=\"pb-5 text-base leading-[1.9] text-muted-foreground\">\n                {faq.answer}\n              </AccordionContent>\n            </AccordionItem>\n          ))}\n        </Accordion>\n      </SectionContent>\n    </Section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/faq-accordion/faq-accordion.tsx"
+    }
+  ],
+  "meta": {
+    "group": "block",
+    "preview": "iframe",
+    "height": 760,
+    "component": "FaqAccordion"
+  },
+  "categories": [
+    "website"
+  ],
+  "type": "registry:block"
+}

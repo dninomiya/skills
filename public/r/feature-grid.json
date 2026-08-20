@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-grid",
+  "title": "機能グリッド",
+  "description": "アイコン付きの機能カード 3 列。1〜6 項目まで、作り直さずに増減できます。",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card",
+    "http://localhost:3000/r/section.json"
+  ],
+  "files": [
+    {
+      "path": "registry/website/blocks/feature-grid/feature-grid.tsx",
+      "content": "import {\n  GaugeIcon,\n  LayersIcon,\n  LockIcon,\n  PaletteIcon,\n  PlugIcon,\n  SparklesIcon,\n} from \"lucide-react\"\n\nimport {\n  Card,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\"\nimport {\n  Section,\n  SectionContent,\n  SectionDescription,\n  SectionEyebrow,\n  SectionHeader,\n  SectionTitle,\n} from \"@/registry/website/ui/section\"\n\nconst features = [\n  {\n    icon: LayersIcon,\n    title: \"組み合わせられるセクション\",\n    description:\n      \"すべてのブロックが同じ余白スケールを共有します。ページが増えても見た目が揃ったままです。\",\n  },\n  {\n    icon: PaletteIcon,\n    title: \"トークン駆動のテーマ\",\n    description:\n      \"色・角丸・書体は CSS 変数から。マークアップを触らずにブランドを差し替えられます。\",\n  },\n  {\n    icon: GaugeIcon,\n    title: \"初期表示が速い\",\n    description:\n      \"サーバーコンポーネント前提。静的なセクションにクライアント JS はなく、レイアウトのずれも起きません。\",\n  },\n  {\n    icon: LockIcon,\n    title: \"アクセシビリティを内蔵\",\n    description:\n      \"フォーカス、ランドマーク、コントラスト比は、文言を書き始める前から担保されています。\",\n  },\n  {\n    icon: PlugIcon,\n    title: \"コマンド一つで導入\",\n    description:\n      \"shadcn CLI でインストール。ソースは自分のリポジトリに入り、そのまま編集できます。\",\n  },\n  {\n    icon: SparklesIcon,\n    title: \"編集しやすい構造\",\n    description:\n      \"文言はファイル冒頭の配列にまとまっています。デザインを崩さずに差し替えられます。\",\n  },\n]\n\nexport function FeatureGrid() {\n  return (\n    <Section id=\"features\" size=\"lg\">\n      <SectionHeader align=\"center\">\n        <SectionEyebrow>機能</SectionEyebrow>\n        <SectionTitle>\n          マーケティングサイトに必要なものが揃っています\n        </SectionTitle>\n        <SectionDescription>\n          決めるべきところは決め打ちで、変えたいところは自由に。\n        </SectionDescription>\n      </SectionHeader>\n      <SectionContent className=\"grid gap-4 sm:grid-cols-2 lg:grid-cols-3\">\n        {features.map((feature) => (\n          <Card\n            key={feature.title}\n            className=\"p-6 [--card-spacing:--spacing(3)]\"\n          >\n            <CardHeader className=\"p-0\">\n              <feature.icon className=\"size-5 text-primary\" />\n              <CardTitle className=\"mt-4 text-base font-semibold\">\n                {feature.title}\n              </CardTitle>\n              <CardDescription className=\"mt-1.5 leading-[1.8]\">\n                {feature.description}\n              </CardDescription>\n            </CardHeader>\n          </Card>\n        ))}\n      </SectionContent>\n    </Section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/feature-grid/feature-grid.tsx"
+    }
+  ],
+  "meta": {
+    "group": "block",
+    "preview": "iframe",
+    "height": 900,
+    "component": "FeatureGrid"
+  },
+  "categories": [
+    "website"
+  ],
+  "type": "registry:block"
+}
