@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "section",
+  "title": "セクション",
+  "description": "セクションの縦リズム・トーン・見出し階層。日本語のタイポグラフィ設定を含む、すべてのブロックの土台です。",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "http://localhost:3000/r/container.json"
+  ],
+  "files": [
+    {
+      "path": "registry/website/ui/section.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Container, containerVariants } from \"@/registry/website/ui/container\"\n\nconst sectionVariants = cva(\"w-full\", {\n  variants: {\n    tone: {\n      default: \"bg-background text-foreground\",\n      muted: \"bg-muted/50 text-foreground\",\n      card: \"bg-card text-card-foreground\",\n      accent: \"bg-primary text-primary-foreground\",\n    },\n    size: {\n      sm: \"py-12 sm:py-16\",\n      md: \"py-16 sm:py-20 lg:py-24\",\n      lg: \"py-20 sm:py-28 lg:py-32\",\n      none: \"py-0\",\n    },\n    bordered: {\n      true: \"border-t border-border\",\n      false: \"\",\n    },\n  },\n  defaultVariants: {\n    tone: \"default\",\n    size: \"md\",\n    bordered: false,\n  },\n})\n\ntype SectionProps = React.ComponentProps<\"section\"> &\n  VariantProps<typeof sectionVariants> & {\n    /** Container width. Use `full` to opt out of the default max width. */\n    width?: VariantProps<typeof containerVariants>[\"size\"]\n    /** Render children without the inner container. */\n    bleed?: boolean\n  }\n\nfunction Section({\n  className,\n  tone,\n  size,\n  bordered,\n  width,\n  bleed = false,\n  children,\n  ...props\n}: SectionProps) {\n  return (\n    <section\n      data-slot=\"section\"\n      data-tone={tone ?? \"default\"}\n      className={cn(sectionVariants({ tone, size, bordered }), className)}\n      {...props}\n    >\n      {bleed ? children : <Container size={width}>{children}</Container>}\n    </section>\n  )\n}\n\nfunction SectionHeader({\n  className,\n  align = \"left\",\n  ...props\n}: React.ComponentProps<\"div\"> & { align?: \"left\" | \"center\" }) {\n  return (\n    <div\n      data-slot=\"section-header\"\n      data-align={align}\n      className={cn(\n        \"flex flex-col gap-4\",\n        align === \"center\"\n          ? \"mx-auto max-w-2xl items-center text-center\"\n          : \"max-w-2xl items-start text-left\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction SectionEyebrow({ className, ...props }: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"section-eyebrow\"\n      className={cn(\n        \"text-sm font-medium tracking-widest text-muted-foreground uppercase\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction SectionTitle({\n  className,\n  as: Comp = \"h2\",\n  ...props\n}: React.ComponentProps<\"h2\"> & { as?: \"h1\" | \"h2\" | \"h3\" }) {\n  return (\n    <Comp\n      data-slot=\"section-title\"\n      className={cn(\n        // Japanese headings: `palt` tightens punctuation, `auto-phrase` breaks\n        // lines at phrase boundaries, and tracking stays looser than the Latin\n        // default so kana does not collide.\n        \"text-3xl font-bold tracking-[-0.01em] text-balance sm:text-4xl\",\n        \"[font-feature-settings:'palt'] [word-break:auto-phrase]\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction SectionDescription({\n  className,\n  ...props\n}: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      data-slot=\"section-description\"\n      className={cn(\n        // 1.8 line-height keeps Japanese body copy readable at both sizes, and\n        // `auto-phrase` breaks lines at phrase boundaries instead of anywhere.\n        \"text-base leading-[1.8] text-pretty text-muted-foreground sm:text-lg\",\n        \"[word-break:auto-phrase]\",\n        \"[[data-tone=accent]_&]:text-primary-foreground/80\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction SectionContent({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"section-content\"\n      className={cn(\"mt-12 sm:mt-16\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction SectionActions({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"section-actions\"\n      className={cn(\n        \"flex flex-col gap-3 sm:flex-row\",\n        \"[[data-align=center]_&]:justify-center\",\n        \"[&_[data-slot=button]]:h-10 [&_[data-slot=button]]:px-5 [&_[data-slot=button]]:text-sm\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport {\n  Section,\n  SectionActions,\n  SectionContent,\n  SectionDescription,\n  SectionEyebrow,\n  SectionHeader,\n  SectionTitle,\n  sectionVariants,\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/section.tsx"
+    }
+  ],
+  "meta": {
+    "group": "primitive",
+    "preview": "inline",
+    "component": "Section"
+  },
+  "categories": [
+    "website",
+    "primitive"
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cta-band",
+  "title": "CTA バンド",
+  "description": "ページを締めくくる、主要な導線だけを置いたアクセントバンド。",
+  "registryDependencies": [
+    "button",
+    "http://localhost:3000/r/section.json"
+  ],
+  "files": [
+    {
+      "path": "registry/website/blocks/cta-band/cta-band.tsx",
+      "content": "import Link from \"next/link\"\n\nimport { Button } from \"@/components/ui/button\"\nimport {\n  Section,\n  SectionActions,\n  SectionDescription,\n  SectionHeader,\n  SectionTitle,\n} from \"@/registry/website/ui/section\"\n\nexport function CtaBand() {\n  return (\n    <Section size=\"lg\" tone=\"accent\">\n      <SectionHeader align=\"center\">\n        <SectionTitle>次のページを公開する準備はできましたか？</SectionTitle>\n        <SectionDescription>\n          レジストリを入れて、ページを組み立てて、今日のうちに公開する。\n        </SectionDescription>\n        <SectionActions className=\"mt-4\">\n          <Button\n            nativeButton={false}\n            variant=\"secondary\"\n            render={<Link href=\"/signup\" />}\n          >\n            無料で始める\n          </Button>\n          <Button\n            nativeButton={false}\n            variant=\"outline\"\n            className=\"border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground dark:bg-transparent\"\n            render={<Link href=\"/contact\" />}\n          >\n            相談する\n          </Button>\n        </SectionActions>\n      </SectionHeader>\n    </Section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/cta-band/cta-band.tsx"
+    }
+  ],
+  "meta": {
+    "group": "block",
+    "preview": "iframe",
+    "height": 420,
+    "component": "CtaBand"
+  },
+  "categories": [
+    "website"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "testimonial-grid",
+  "title": "お客様の声",
+  "description": "アバター付きの引用カード 3 枚。文量が違っても高さが揃います。",
+  "registryDependencies": [
+    "avatar",
+    "card",
+    "http://localhost:3000/r/section.json"
+  ],
+  "files": [
+    {
+      "path": "registry/website/blocks/testimonial-grid/testimonial-grid.tsx",
+      "content": "import { Avatar, AvatarFallback } from \"@/components/ui/avatar\"\nimport { Card, CardContent } from \"@/components/ui/card\"\nimport {\n  Section,\n  SectionContent,\n  SectionDescription,\n  SectionEyebrow,\n  SectionHeader,\n  SectionTitle,\n} from \"@/registry/website/ui/section\"\n\nconst testimonials = [\n  {\n    quote:\n      \"作りかけのランディングページ3本を、ひとつの仕組みに置き換えました。次のキャンペーンページは、スプリントではなく1時間で終わりました。\",\n    name: \"田中 美香\",\n    role: \"Northwind グロース責任者\",\n    initials: \"田中\",\n  },\n  {\n    quote:\n      \"余白と文字サイズが決まっているので、レビューが余白の議論ではなく、伝えたいことの議論になりました。\",\n    name: \"佐藤 大輔\",\n    role: \"Cobalt デザインリード\",\n    initials: \"佐藤\",\n  },\n  {\n    quote:\n      \"色をハードコードしていないので、ダークモードが一発で動きました。それだけで移行のコストは回収できています。\",\n    name: \"中村 遥\",\n    role: \"Loop ソフトウェアエンジニア\",\n    initials: \"中村\",\n  },\n]\n\nexport function TestimonialGrid() {\n  return (\n    <Section id=\"testimonials\" size=\"lg\">\n      <SectionHeader align=\"center\">\n        <SectionEyebrow>導入事例</SectionEyebrow>\n        <SectionTitle>同じページを作り直すのをやめたチーム</SectionTitle>\n        <SectionDescription>\n          一貫した仕組みの効果は、2ページ目から効いてきます。\n        </SectionDescription>\n      </SectionHeader>\n      <SectionContent className=\"grid gap-4 lg:grid-cols-3\">\n        {testimonials.map((testimonial) => (\n          <Card key={testimonial.name} className=\"justify-between p-6\">\n            <CardContent className=\"p-0\">\n              <blockquote className=\"text-base leading-[1.9] text-pretty\">\n                「{testimonial.quote}」\n              </blockquote>\n            </CardContent>\n            <div className=\"mt-6 flex items-center gap-3\">\n              <Avatar className=\"size-9\">\n                <AvatarFallback className=\"text-xs\">\n                  {testimonial.initials}\n                </AvatarFallback>\n              </Avatar>\n              <div className=\"flex flex-col\">\n                <span className=\"text-sm font-medium\">{testimonial.name}</span>\n                <span className=\"text-xs text-muted-foreground\">\n                  {testimonial.role}\n                </span>\n              </div>\n            </div>\n          </Card>\n        ))}\n      </SectionContent>\n    </Section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "components/blocks/testimonial-grid/testimonial-grid.tsx"
+    }
+  ],
+  "meta": {
+    "group": "block",
+    "preview": "iframe",
+    "height": 760,
+    "component": "TestimonialGrid"
+  },
+  "categories": [
+    "website"
+  ],
+  "type": "registry:block"
+}

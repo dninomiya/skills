@@ -1,0 +1,546 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "website",
+  "homepage": "http://localhost:3000",
+  "items": [
+    {
+      "name": "website-theme",
+      "type": "registry:theme",
+      "title": "ウェブサイトテーマ",
+      "description": "マーケティングページ向けにトークンを調整したテーマ。アクセントは 1 色、ニュートラルは落ち着いた色味、角丸はやや大きめ。日本語向けのフォントスタックも含みます。",
+      "categories": [
+        "website",
+        "theme"
+      ],
+      "meta": {
+        "group": "theme",
+        "preview": "none"
+      },
+      "docs": "Noto Sans JP を next/font で読み込み、<html> に variable を渡してください。\n\nimport { Noto_Sans_JP } from \"next/font/google\"\n\nconst notoSansJP = Noto_Sans_JP({\n  variable: \"--font-noto-sans-jp\",\n  subsets: [\"latin\"],\n  display: \"swap\",\n  // 日本語グリフは大きいので preload しない\n  preload: false,\n})\n\n<html lang=\"ja\" className={notoSansJP.variable}>",
+      "css": {
+        "@layer base": {
+          "p, li, dd, dt, blockquote, figcaption, label": {
+            "word-break": "auto-phrase"
+          }
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "--radius": "0.75rem",
+          "--font-sans": "\"Noto Sans JP\", \"Noto Sans JP Fallback\", ui-sans-serif, system-ui, \"Hiragino Sans\", \"Yu Gothic UI\", sans-serif",
+          "--font-mono": "\"Geist Mono\", \"Geist Mono Fallback\", ui-monospace, SFMono-Regular, monospace"
+        },
+        "light": {
+          "--background": "oklch(1 0 0)",
+          "--foreground": "oklch(0.17 0.01 258)",
+          "--muted": "oklch(0.97 0.005 258)",
+          "--muted-foreground": "oklch(0.52 0.015 258)",
+          "--card": "oklch(1 0 0)",
+          "--card-foreground": "oklch(0.17 0.01 258)",
+          "--primary": "oklch(0.55 0.19 258)",
+          "--primary-foreground": "oklch(0.99 0 0)",
+          "--secondary": "oklch(0.97 0.005 258)",
+          "--secondary-foreground": "oklch(0.24 0.015 258)",
+          "--accent": "oklch(0.96 0.015 258)",
+          "--accent-foreground": "oklch(0.31 0.04 258)",
+          "--border": "oklch(0.92 0.005 258)",
+          "--input": "oklch(0.92 0.005 258)",
+          "--ring": "oklch(0.55 0.19 258)"
+        },
+        "dark": {
+          "--background": "oklch(0.16 0.01 258)",
+          "--foreground": "oklch(0.97 0.005 258)",
+          "--muted": "oklch(0.24 0.015 258)",
+          "--muted-foreground": "oklch(0.72 0.015 258)",
+          "--card": "oklch(0.2 0.012 258)",
+          "--card-foreground": "oklch(0.97 0.005 258)",
+          "--primary": "oklch(0.68 0.16 258)",
+          "--primary-foreground": "oklch(0.17 0.02 258)",
+          "--secondary": "oklch(0.26 0.015 258)",
+          "--secondary-foreground": "oklch(0.97 0.005 258)",
+          "--accent": "oklch(0.28 0.02 258)",
+          "--accent-foreground": "oklch(0.95 0.01 258)",
+          "--border": "oklch(1 0 0 / 12%)",
+          "--input": "oklch(1 0 0 / 16%)",
+          "--ring": "oklch(0.68 0.16 258)"
+        }
+      }
+    },
+    {
+      "name": "container",
+      "type": "registry:ui",
+      "title": "コンテナ",
+      "description": "すべてのセクションが共有する、最大幅と左右余白のラッパー。",
+      "files": [
+        {
+          "path": "registry/website/ui/container.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/container.tsx"
+        }
+      ],
+      "categories": [
+        "website",
+        "primitive"
+      ],
+      "meta": {
+        "group": "primitive",
+        "preview": "inline",
+        "component": "Container"
+      },
+      "dependencies": [
+        "class-variance-authority"
+      ]
+    },
+    {
+      "name": "section",
+      "type": "registry:ui",
+      "title": "セクション",
+      "description": "セクションの縦リズム・トーン・見出し階層。日本語のタイポグラフィ設定を含む、すべてのブロックの土台です。",
+      "files": [
+        {
+          "path": "registry/website/ui/section.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/section.tsx"
+        }
+      ],
+      "categories": [
+        "website",
+        "primitive"
+      ],
+      "meta": {
+        "group": "primitive",
+        "preview": "inline",
+        "component": "Section"
+      },
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/container.json"
+      ]
+    },
+    {
+      "name": "placeholder",
+      "type": "registry:ui",
+      "title": "プレースホルダー",
+      "description": "画像の差し込み位置をアスペクト比つきで確保します。実素材に差し替えてもレイアウトがずれません。",
+      "files": [
+        {
+          "path": "registry/website/ui/placeholder.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/placeholder.tsx"
+        }
+      ],
+      "categories": [
+        "website",
+        "primitive"
+      ],
+      "meta": {
+        "group": "primitive",
+        "preview": "inline",
+        "component": "Placeholder"
+      },
+      "dependencies": [
+        "class-variance-authority"
+      ]
+    },
+    {
+      "name": "site-header",
+      "type": "registry:block",
+      "title": "サイトヘッダー",
+      "description": "主要ナビゲーション、ログイン導線、モバイル用シートメニューを備えた固定ヘッダー。",
+      "files": [
+        {
+          "path": "registry/website/blocks/site-header/site-header.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/site-header/site-header.tsx"
+        }
+      ],
+      "categories": [
+        "website"
+      ],
+      "meta": {
+        "group": "block",
+        "preview": "iframe",
+        "height": 420,
+        "component": "SiteHeader"
+      },
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "sheet",
+        "http://localhost:3000/r/container.json"
+      ]
+    },
+    {
+      "name": "hero-centered",
+      "type": "registry:block",
+      "title": "ヒーロー（中央揃え）",
+      "description": "お知らせバッジ、2 つの CTA、プロダクト画面の枠を備えた中央揃えのヒーロー。",
+      "files": [
+        {
+          "path": "registry/website/blocks/hero-centered/hero-centered.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/hero-centered/hero-centered.tsx"
+        }
+      ],
+      "categories": [
+        "website"
+      ],
+      "meta": {
+        "group": "block",
+        "preview": "iframe",
+        "height": 860,
+        "component": "HeroCentered"
+      },
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "http://localhost:3000/r/section.json",
+        "http://localhost:3000/r/placeholder.json"
+      ]
+    },
+    {
+      "name": "hero-split",
+      "type": "registry:block",
+      "title": "ヒーロー（左右分割）",
+      "description": "価値提案と裏づけを、ビジュアルと並べて見せる 2 カラムのヒーロー。",
+      "files": [
+        {
+          "path": "registry/website/blocks/hero-split/hero-split.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/hero-split/hero-split.tsx"
+        }
+      ],
+      "categories": [
+        "website"
+      ],
+      "meta": {
+        "group": "block",
+        "preview": "iframe",
+        "height": 760,
+        "component": "HeroSplit"
+      },
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "http://localhost:3000/r/section.json",
+        "http://localhost:3000/r/placeholder.json"
+      ]
+    },
+    {
+      "name": "logo-cloud",
+      "type": "registry:block",
+      "title": "ロゴクラウド",
+      "description": "ヒーローの直下に置く、控えめな導入実績の帯。",
+      "files": [
+        {
+          "path": "registry/website/blocks/logo-cloud/logo-cloud.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/logo-cloud/logo-cloud.tsx"
+        }
+      ],
+      "categories": [
+        "website"
+      ],
+      "meta": {
+        "group": "block",
+        "preview": "iframe",
+        "height": 320,
+        "component": "LogoCloud"
+      },
+      "registryDependencies": [
+        "http://localhost:3000/r/section.json"
+      ]
+    },
+    {
+      "name": "feature-grid",
+      "type": "registry:block",
+      "title": "機能グリッド",
+      "description": "アイコン付きの機能カード 3 列。1〜6 項目まで、作り直さずに増減できます。",
+      "files": [
+        {
+          "path": "registry/website/blocks/feature-grid/feature-grid.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/feature-grid/feature-grid.tsx"
+        }
+      ],
+      "categories": [
+        "website"
+      ],
+      "meta": {
+        "group": "block",
+        "preview": "iframe",
+        "height": 900,
+        "component": "FeatureGrid"
+      },
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "http://localhost:3000/r/section.json"
+      ]
+    },
+    {
+      "name": "feature-alternating",
+      "type": "registry:block",
+      "title": "機能（交互レイアウト）",
+      "description": "テキストとビジュアルを左右交互に並べ、2〜3 個の機能を掘り下げます。",
+      "files": [
+        {
+          "path": "registry/website/blocks/feature-alternating/feature-alternating.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/feature-alternating/feature-alternating.tsx"
+        }
+      ],
+      "categories": [
+        "website"
+      ],
+      "meta": {
+        "group": "block",
+        "preview": "iframe",
+        "height": 1100,
+        "component": "FeatureAlternating"
+      },
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "http://localhost:3000/r/section.json",
+        "http://localhost:3000/r/placeholder.json"
+      ]
+    },
+    {
+      "name": "stats-band",
+      "type": "registry:block",
+      "title": "指標バンド",
+      "description": "アクセント色の全幅バンドに、等幅数字で 4 つの指標を並べます。",
+      "files": [
+        {
+          "path": "registry/website/blocks/stats-band/stats-band.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/stats-band/stats-band.tsx"
+        }
+      ],
+      "categories": [
+        "website"
+      ],
+      "meta": {
+        "group": "block",
+        "preview": "iframe",
+        "height": 480,
+        "component": "StatsBand"
+      },
+      "registryDependencies": [
+        "http://localhost:3000/r/section.json"
+      ]
+    },
+    {
+      "name": "testimonial-grid",
+      "type": "registry:block",
+      "title": "お客様の声",
+      "description": "アバター付きの引用カード 3 枚。文量が違っても高さが揃います。",
+      "files": [
+        {
+          "path": "registry/website/blocks/testimonial-grid/testimonial-grid.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/testimonial-grid/testimonial-grid.tsx"
+        }
+      ],
+      "categories": [
+        "website"
+      ],
+      "meta": {
+        "group": "block",
+        "preview": "iframe",
+        "height": 760,
+        "component": "TestimonialGrid"
+      },
+      "registryDependencies": [
+        "avatar",
+        "card",
+        "http://localhost:3000/r/section.json"
+      ]
+    },
+    {
+      "name": "pricing-tiers",
+      "type": "registry:block",
+      "title": "料金プラン",
+      "description": "おすすめプランを強調した 3 段階の料金表。プランごとの機能一覧つき。",
+      "files": [
+        {
+          "path": "registry/website/blocks/pricing-tiers/pricing-tiers.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/pricing-tiers/pricing-tiers.tsx"
+        }
+      ],
+      "categories": [
+        "website"
+      ],
+      "meta": {
+        "group": "block",
+        "preview": "iframe",
+        "height": 1000,
+        "component": "PricingTiers"
+      },
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "http://localhost:3000/r/section.json"
+      ]
+    },
+    {
+      "name": "faq-accordion",
+      "type": "registry:block",
+      "title": "FAQ アコーディオン",
+      "description": "1 つずつ開くアコーディオン。長い回答も読みやすい幅に収めています。",
+      "files": [
+        {
+          "path": "registry/website/blocks/faq-accordion/faq-accordion.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/faq-accordion/faq-accordion.tsx"
+        }
+      ],
+      "categories": [
+        "website"
+      ],
+      "meta": {
+        "group": "block",
+        "preview": "iframe",
+        "height": 760,
+        "component": "FaqAccordion"
+      },
+      "registryDependencies": [
+        "accordion",
+        "http://localhost:3000/r/section.json"
+      ]
+    },
+    {
+      "name": "cta-band",
+      "type": "registry:block",
+      "title": "CTA バンド",
+      "description": "ページを締めくくる、主要な導線だけを置いたアクセントバンド。",
+      "files": [
+        {
+          "path": "registry/website/blocks/cta-band/cta-band.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/cta-band/cta-band.tsx"
+        }
+      ],
+      "categories": [
+        "website"
+      ],
+      "meta": {
+        "group": "block",
+        "preview": "iframe",
+        "height": 420,
+        "component": "CtaBand"
+      },
+      "registryDependencies": [
+        "button",
+        "http://localhost:3000/r/section.json"
+      ]
+    },
+    {
+      "name": "contact-form",
+      "type": "registry:block",
+      "title": "お問い合わせフォーム",
+      "description": "ラベル付きでアクセシブルな 2 カラムのお問い合わせセクション。Server Action にすぐ接続できます。",
+      "files": [
+        {
+          "path": "registry/website/blocks/contact-form/contact-form.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/contact-form/contact-form.tsx"
+        }
+      ],
+      "categories": [
+        "website"
+      ],
+      "meta": {
+        "group": "block",
+        "preview": "iframe",
+        "height": 760,
+        "component": "ContactForm"
+      },
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "textarea",
+        "http://localhost:3000/r/section.json"
+      ]
+    },
+    {
+      "name": "site-footer",
+      "type": "registry:block",
+      "title": "サイトフッター",
+      "description": "リンクグループ、ブランド説明、規約リンクを備えた 4 カラムのフッター。",
+      "files": [
+        {
+          "path": "registry/website/blocks/site-footer/site-footer.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/site-footer/site-footer.tsx"
+        }
+      ],
+      "categories": [
+        "website"
+      ],
+      "meta": {
+        "group": "block",
+        "preview": "iframe",
+        "height": 560,
+        "component": "SiteFooter"
+      },
+      "registryDependencies": [
+        "http://localhost:3000/r/container.json"
+      ]
+    },
+    {
+      "name": "landing-page",
+      "type": "registry:block",
+      "title": "ランディングページ",
+      "description": "ヘッダーからフッターまでの完成構成（ヒーロー・実績・機能・料金・FAQ・CTA）。既存のトップページと衝突しないよう /landing に入るので、内容が固まったら好きな場所へ移してください。",
+      "categories": [
+        "website",
+        "page"
+      ],
+      "files": [
+        {
+          "path": "registry/website/blocks/landing-page/page.tsx",
+          "type": "registry:page",
+          "target": "app/(marketing)/landing/page.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/site-header.json",
+        "http://localhost:3000/r/hero-centered.json",
+        "http://localhost:3000/r/logo-cloud.json",
+        "http://localhost:3000/r/feature-grid.json",
+        "http://localhost:3000/r/feature-alternating.json",
+        "http://localhost:3000/r/stats-band.json",
+        "http://localhost:3000/r/testimonial-grid.json",
+        "http://localhost:3000/r/pricing-tiers.json",
+        "http://localhost:3000/r/faq-accordion.json",
+        "http://localhost:3000/r/cta-band.json",
+        "http://localhost:3000/r/site-footer.json"
+      ],
+      "meta": {
+        "group": "page",
+        "preview": "iframe",
+        "height": 900
+      }
+    }
+  ]
+}

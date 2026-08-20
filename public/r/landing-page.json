@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "landing-page",
+  "title": "ランディングページ",
+  "description": "ヘッダーからフッターまでの完成構成（ヒーロー・実績・機能・料金・FAQ・CTA）。既存のトップページと衝突しないよう /landing に入るので、内容が固まったら好きな場所へ移してください。",
+  "registryDependencies": [
+    "http://localhost:3000/r/site-header.json",
+    "http://localhost:3000/r/hero-centered.json",
+    "http://localhost:3000/r/logo-cloud.json",
+    "http://localhost:3000/r/feature-grid.json",
+    "http://localhost:3000/r/feature-alternating.json",
+    "http://localhost:3000/r/stats-band.json",
+    "http://localhost:3000/r/testimonial-grid.json",
+    "http://localhost:3000/r/pricing-tiers.json",
+    "http://localhost:3000/r/faq-accordion.json",
+    "http://localhost:3000/r/cta-band.json",
+    "http://localhost:3000/r/site-footer.json"
+  ],
+  "files": [
+    {
+      "path": "registry/website/blocks/landing-page/page.tsx",
+      "content": "import { CtaBand } from \"@/registry/website/blocks/cta-band/cta-band\"\nimport { FaqAccordion } from \"@/registry/website/blocks/faq-accordion/faq-accordion\"\nimport { FeatureAlternating } from \"@/registry/website/blocks/feature-alternating/feature-alternating\"\nimport { FeatureGrid } from \"@/registry/website/blocks/feature-grid/feature-grid\"\nimport { HeroCentered } from \"@/registry/website/blocks/hero-centered/hero-centered\"\nimport { LogoCloud } from \"@/registry/website/blocks/logo-cloud/logo-cloud\"\nimport { PricingTiers } from \"@/registry/website/blocks/pricing-tiers/pricing-tiers\"\nimport { SiteFooter } from \"@/registry/website/blocks/site-footer/site-footer\"\nimport { SiteHeader } from \"@/registry/website/blocks/site-header/site-header\"\nimport { StatsBand } from \"@/registry/website/blocks/stats-band/stats-band\"\nimport { TestimonialGrid } from \"@/registry/website/blocks/testimonial-grid/testimonial-grid\"\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh flex-col\">\n      <SiteHeader />\n      <main className=\"flex-1\">\n        <HeroCentered />\n        <LogoCloud />\n        <FeatureGrid />\n        <FeatureAlternating />\n        <StatsBand />\n        <TestimonialGrid />\n        <PricingTiers />\n        <FaqAccordion />\n        <CtaBand />\n      </main>\n      <SiteFooter />\n    </div>\n  )\n}\n",
+      "type": "registry:page",
+      "target": "app/(marketing)/landing/page.tsx"
+    }
+  ],
+  "meta": {
+    "group": "page",
+    "preview": "iframe",
+    "height": 900
+  },
+  "categories": [
+    "website",
+    "page"
+  ],
+  "type": "registry:block"
+}
